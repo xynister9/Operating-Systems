@@ -17,13 +17,9 @@
             adderSubtractorPackage
 
     • CS: OS4: Mutex and Semaphores
-        - Whats Synchronisation problem ?  
-        - What is and Ideal Solution ? 
-        - Solutions 
-            • Mutex (Locks)
-            • Synchronised 
-            • Semaphores 
-            • Atomic data types
+        in: producerConsumerProblemPackage
+        in: producerConsumerProblemSemaphoresPackage
+        
 
     • CS: OS5: Concurrent Data Structures and Deadlocks	
     

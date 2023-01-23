@@ -45,8 +45,20 @@
 			Lock before instructions and unlock after that (Reentrant Lock)
 		• Synchronised Method and Block (Java)
 			On one object only one thread can enter in any one of synchronized methods  
-
+		- Producer Consumer Problem :- Very important
+			When two producer / two consumer enter at the same time but find out there was only one shirt to buy 
+			Happend because it prempted after entering 
+			We want more than one to enter actually (Hence born Semaphores)
+			
 		• Semaphores 
+		    See it as a signalling mechanisms
+			Acquire -1
+			Release +1
+			X acquires and releases for Y same vice versa
+			https://leetcode.com/problems/the-dining-philosophers/
+			https://leetcode.com/problems/fizz-buzz-multithreaded/ 
+			https://leetcode.com/problems/building-h2o/ 
+
 		• Atomic data types
 
 
