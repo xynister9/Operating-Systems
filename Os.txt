@@ -1,0 +1,182 @@
+
+// Notes of Operating Systems ... Go brrrrrr........
+
+1 Os -> What is OS - An API between developer or applications and hardware resources
+	• Types - Uni programming - embedded systems,iot devices small devices - calculator smart toaster etc 
+	
+	• Multi Programming , Multitasking is similar in context of Windows
+	
+	• Multi User :- User level virtualization of machine 
+	
+	• Premptive , Non Premptive 
+	
+	• Code -> Compilation -> Programme -> Proccess -> Process in execution
+	
+	• PCB -> Hold meta data about process all thats necessary info regarding a process 
+
+	• Types of processes :- IO bound and CPU bound 
+
+	-> To get premption -> need of CPU sheduling :- problem arisen is context switching overhead
+
+	• Round Robin helps to solve problem of Startvation which rest of algorithms fail to prevent 
+
+
+    • Threads :- unit of processing for CPU  , individual path of execution
+        Purpose :- data sharing , code sharing , resources section , creating a new process is slower 
+
+    • Cores :- Processing Unit of CPU , each core executes a thread
+    	Parallelism : Concurrency  :: Multi core : Single core 
+
+    • Java threads :- Using Runnable interface it has a run method
+    	Executors and Thread Pools 
+    		(How threads are coded in production )
+			-> Executor types : newFixedThreadPool , newCachedThreadPool
+        Runnable 
+            (How threads can do proccessing ) -> Executor.execute() ;
+    	Callable 
+    		(How threads can return data ) -> Executor.submit() ;
+    		Implement mergesort , quicksort 
+    	Synchronisation Problems :-
+    		Added Subtractor problem 
+        Check packages for code 
+
+
+2 Processes 
+	->Process defination - a programme under execution 
+	->The operating system is responsible for the following activities in connection with Process Management
+		->Scheduling processes and threads on the CPUs.
+		->Creating and deleting both user and system processes.
+		->Suspending and resuming processes.
+		->Providing mechanisms for process synchronization.
+		->Providing mechanisms for process communication.
+	-> Process attributes : 
+		Pointers , Process Id , Process counter , Process state , Priority ,  Opened files , gp registers, , open devices 
+	-> Process states : Diagram 
+	    New ,  Ready , Running ,  Block or wait , Suspended wait , Ready suspended , Termination 
+	-> Three type of queues -> Job queue, Ready Queue ,  Waiting queue , Suspended Ready 		Queue ( Shedulers & Queue Diagram )
+	-> Operations on Processes 
+		-> Create , Shedule  , Execute , Kill 
+	-> PCB , context switching , swapping 
+	-> Three type of shedulers :
+		-> Long , Short , Mid term sheduler 
+	-> Threads 
+		-> Light weights processes 
+		-> share same data code and files but different mini TCBS/, stack CPU registers 
+		-> They are easy to make , easy context switching , easily terminated 
+		-> can take use of multi-processor environment , enhanced throughput 
+		-> Increase responsiveness , no need of inter process communication 
+		-> Resource sharing and easy - fast communication 
+		-> User level thread 
+			-> not recognised by OS . Operated by user level library 
+			-> easy to implement , if thread blocked whole process blocked 
+			-> simple to create , switch , synchronize 
+		-> Kernel level thread 
+			-> Its implemented by OS , it knows about all other threads 
+			-> It offers use of system calls to create Kernel level threads when arriving user level threads 
+			-> Implementation is difficult , context switch time is more 
+		->Process Sheduling Algorithms
+			-> FCFS
+			-> SJF
+			-> SRTF
+			-> Priority based
+			-> Round Robin
+			
+			-> Multilevel Queue
+				-> System Process
+				-> Interactive IO
+				-> Batch Process or background processes
+
+
+3 Process Synchronization
+	-> A cooperative process is the one which can affect the execution of other process or can be affected by the 			execution of other process. Such processes need to be synchronized so that their order of execution can be 			guaranteed.
+	-> Race condition - When two or more threads/processing are trying to read write to same memory data 
+	-> Critical Section - The region of program that try to access the shared resources and can create race condition
+	-> Critical Section problem 
+		-> It cant be executed by more than one process at a time 
+		-> Operating system faces the difficulties in allowing and disallowing the processes from entering the critical 	section.
+		-> Problem to design a protocol to avoid race condition among processes 
+		-> Satisfy 4 condition to solve
+			->A Mutual Exclusion (imp)
+			->B Progress (imp)
+			->C Bounded Wait
+			->D Architecture neutral
+		-> Lock variable :- Doesnt gaurantee A-x , B-x
+		-> TSL - Test set lock :- Gaurantees A , B not  C , D
+		-> Turn Variable or Strict Alternation Approach - Use turn variable , only for twi process , user mode software 	sol
+			-> A,C,D but not B
+		-> Interested variable 
+			-> A , B , D but not C
+		-> Patterson's Solution  :- Mix of turn and interested variable 
+			-> A , B , C , D 
+		-> Semaphores
+		-> Reader Writer problem 
+		-> Dining philosphers problem 
+
+
+4  Deadlocks 
+    ->Four conditions : 
+		-> Mutual Exclusion
+		-> Non Premptive
+		-> Wait and Hold 
+		-> Circular Wait 
+	->Representation by :
+		-> Resource Allocation Graph (RAG)
+		-> Can determine deadlock with help of this
+		-> nodes are processes and resources
+		-> edges are requests and allocations
+	->Prevention Methods : 
+		->Deadlock Ignorance (Ostrick Method) { cuz deadlock if very rare }
+		->Deadlock Prevention { try to remove some of the condition of 4 of deadlock }
+		->Deadlock Avoidance (Banker's Algorithm ) { before allocating resource we check safe condition }
+		->Deadlock Detection and Recovery { by killing a process or processes }
+
+	->Banker's Algorithm :
+		-> Process 	   Max need 	Availability 	Remaining need
+
+
+5 Memory Management :-
+
+        CPU __________>  RAM -> Secondary Memory 
+        /     \       /
+    Registers   Cache 
+
+
+    Methods of Memory Allocation for processes
+
+    1) Contagious :-  No spanning 
+        a) Fixed length ( static ) 
+            -> no of partition is fixed - size can differ 
+            -> Internal fragmentation 
+            -> Limit in process size
+            -> Limited degree of multiprogramming 
+            -> External fragmentation  
+
+        b) variable lenght ( dynamic )
+            -> partitioning at runtime not fixed
+            -> No internal fragmentation
+            -> No limit on degree of multiprogramming 
+            -> No limitation on process size 
+            -> External fragmentation is still there --- holess (we can use compaction but its time consuming )
+            -> Allocation Deallocation is complex 
+                -> First Fit 
+                -> Next Fit 
+                -> Best Fit 
+                -> Worst Fit 
+
+    2) Non Contagious :-
+        -> We can divide the process to store it at non contagious locations in multiple parts called as spanning 
+
+        a) paging
+            -> Divide the process into pages 
+            -> Divide memory into frames
+            -> Page size = Frame size 
+            -> Multiple important concepts 
+        b) multilevel paging 
+        
+        c) inverted paging 
+        d) segmentation
+        e) segmented paging 
+
+
+6 Disk Management :- 
+    To do : 
