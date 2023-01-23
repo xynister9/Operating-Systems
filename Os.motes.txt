@@ -39,6 +39,15 @@
     	Synchronisation Problems :-
     		Added Subtractor problem 
         Check packages for code 
+	
+	• Synchronisation problems :- Solutions 
+		• Mutex (Locks) Mutual Exclusion Providing Lock 
+			Lock before instructions and unlock after that (Reentrant Lock)
+		• Synchronised Method and Block (Java)
+			On one object only one thread can enter in any one of synchronized methods  
+
+		• Semaphores 
+		• Atomic data types
 
 
 2 Processes 
@@ -88,10 +97,12 @@
 
 
 3 Process Synchronization
-	-> A cooperative process is the one which can affect the execution of other process or can be affected by the 			execution of other process. Such processes need to be synchronized so that their order of execution can be 			guaranteed.
-	-> Race condition - When two or more threads/processing are trying to read write to same memory data 
-	-> Critical Section - The region of program that try to access the shared resources and can create race condition
-	-> Critical Section problem 
+	-> A cooperative process is the one which can affect the execution of other process or can be affected by the execution of other process. Such processes need to be synchronized so that their order of execution can be 
+		guaranteed.
+	-> Critical Section - The region of program that try to access the shared resources (R/W on shared resources)
+	-> Race condition - When two or more threads/processing are trying to enter into critical section
+	-> Premption - Switch a proccess / thread 
+	Critical Section problem 
 		-> It cant be executed by more than one process at a time 
 		-> Operating system faces the difficulties in allowing and disallowing the processes from entering the critical 	section.
 		-> Problem to design a protocol to avoid race condition among processes 
@@ -100,6 +111,7 @@
 			->B Progress (imp)
 			->C Bounded Wait
 			->D Architecture neutral
+			->E No busy Waiting
 		-> Lock variable :- Doesnt gaurantee A-x , B-x
 		-> TSL - Test set lock :- Gaurantees A , B not  C , D
 		-> Turn Variable or Strict Alternation Approach - Use turn variable , only for twi process , user mode software 	sol

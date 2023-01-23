@@ -7,4 +7,11 @@ public class Count {
         value = c ;
     }
 
+    synchronized void incrementBy (int val){
+        value+=val ;
+    }
+
+    Integer getValue(){
+        return value ;
+    }
 }
