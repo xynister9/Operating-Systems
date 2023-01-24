@@ -12,9 +12,9 @@ public class Client {
         Semaphore producerSemaphore = new Semaphore(6) ;
         Semaphore consumerSemaphore = new Semaphore(0) ;
 
-        Producer p1 = new Producer(queue, 6 , producerSemaphore , consumerSemaphore , "p1") ;
-        Producer p2 = new Producer(queue, 6, producerSemaphore , consumerSemaphore, "p3") ;
-        Producer p3 = new Producer(queue, 6, producerSemaphore , consumerSemaphore, "p3") ;
+        Producer p1 = new Producer(queue,  producerSemaphore , consumerSemaphore , "p1") ;
+        Producer p2 = new Producer(queue,  producerSemaphore , consumerSemaphore, "p3") ;
+        Producer p3 = new Producer(queue,  producerSemaphore , consumerSemaphore, "p3") ;
 
         Consumer c1 = new Consumer(queue, 6, producerSemaphore , consumerSemaphore , "c1") ;
         Consumer c2 = new Consumer(queue, 6, producerSemaphore , consumerSemaphore, "c2") ;

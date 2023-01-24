@@ -60,6 +60,10 @@
 			https://leetcode.com/problems/building-h2o/ 
 
 		• Atomic data types
+			AtomicInteger etc
+		• Concurrent Data Structures
+			ConcurrentLinkedDeque , concurrent HashMap etc allows concurrent operations
+
 
 
 2 Processes 
@@ -151,6 +155,7 @@
 	->Prevention Methods : 
 		->Deadlock Ignorance (Ostrick Method) { cuz deadlock if very rare }
 		->Deadlock Prevention { try to remove some of the condition of 4 of deadlock }
+			• Taking locks inorder (ascending or descending )
 		->Deadlock Avoidance (Banker's Algorithm ) { before allocating resource we check safe condition }
 		->Deadlock Detection and Recovery { by killing a process or processes }
 

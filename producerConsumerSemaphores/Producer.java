@@ -5,14 +5,13 @@ import java.util.concurrent.Semaphore;
 
 public class Producer implements Runnable {
     private  Queue<Object>  queue ;
-    private int maxSize ;
+
     Semaphore producerSemaphore ;
     Semaphore consumerSemaphore ;
     String name ;
 
-    Producer( Queue<Object> queue , int maxSize , Semaphore producerSemaphore, Semaphore consumerSemaphore , String name ){
+    Producer( Queue<Object> queue , Semaphore producerSemaphore, Semaphore consumerSemaphore , String name ){
         this.queue = queue ;
-        this.maxSize = maxSize ;
         this.producerSemaphore = producerSemaphore ; 
         this.consumerSemaphore = consumerSemaphore ;
         this.name = name ;

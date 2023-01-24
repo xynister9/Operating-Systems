@@ -21,6 +21,8 @@ public class Consumer implements Runnable {
     }
     @Override
     public void run() {
+        if(maxSize>0);
+        
         while(true){
             try {
                 consumerSemaphore.acquire();
