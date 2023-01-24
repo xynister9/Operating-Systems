@@ -64,7 +64,10 @@
 		• Concurrent Data Structures
 			ConcurrentLinkedDeque , concurrent HashMap etc allows concurrent operations
 
-
+	• Memory Management :- 
+		Volatile           and    Non Volatile storage devices
+		small but fast            large but slow 
+		Process is loaded in Ram first cuz CPU cant work with Disk 
 
 2 Processes 
 	->Process defination - a programme under execution 
